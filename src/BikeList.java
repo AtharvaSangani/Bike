@@ -114,6 +114,10 @@ public class BikeList {
         }
     }
 
+    public void alterBike(){
+
+    }
+
 
 
 
