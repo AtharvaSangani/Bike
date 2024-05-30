@@ -55,5 +55,17 @@ public class Bike
         this.wheelSize = wheelSize;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getPackage().getName() + "." + getClass().getName() +
+                "[Id:" + bikeID +
+                ", Owner:" + ownerName +
+                ", Type:" + type +
+                ", Serial:" + serial +
+                ", Brake:" + brake +
+                ", WheelSize:" + wheelSize +
+                "]";
+    }
+
 
 }
