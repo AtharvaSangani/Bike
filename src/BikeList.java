@@ -115,7 +115,70 @@ public class BikeList {
     }
 
     public void alterBike(){
+        if (bikeList.isEmpty()){
+            System.out.println("No bikes registered");
+            return;
+        }
+        displayAllBikes();
+        System.out.println("Enter ID (0 to cancel)");
+        System.out.print(">");
+        int id = getValidIntInput(0, bikeIDNumber - 1);
+        if (id == 0) {
+            return;
+        }
+        Bike bikeToUpdate = findBikeById(id);
 
+        while (bikeToUpdate == null) {
+            System.out.println("Bike ID not found. Please try again.");
+            id = getValidIntInput(0, bikeIDNumber - 1);
+        }
+
+        System.out.println("Which Attribute? ");
+        System.out.print(">");
+
+        String attribute = scanner.next();
+
+        switch (attribute){
+
+            case "Owner":
+                System.out.println("New Value");
+                System.out.println(">");
+                bikeToUpdate.setOwnerName(scanner.next());
+                System.out.println("Saved!");
+                break;
+
+            case "Type":
+                System.out.println("New Value");
+                System.out.println(">");
+                bikeToUpdate.setType(scanner.next());
+                System.out.println("Saved!");
+                break;
+
+            case "Serial":
+                System.out.println("New Value");
+                System.out.println(">");
+                bikeToUpdate.setSerial(scanner.next());
+                System.out.println("Saved!");
+                break;
+
+            case "Brake":
+                System.out.println("New Value");
+                System.out.println(">");
+                bikeToUpdate.setBrake(scanner.next());
+                System.out.println("Saved!");
+                break;
+
+            case "Wheel Size":
+                System.out.println("New Value");
+                System.out.println(">");
+                bikeToUpdate.setWheelSize(scanner.next());
+                System.out.println("Saved!");
+                break;
+
+            default:
+                System.out.println("Invalid Attribute. Please try again.");
+                attribute = scanner.next();
+        }
     }
 
 
